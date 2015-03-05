@@ -31,6 +31,27 @@ public class Hand {
 		}
 		return myHand;
 	}
+	
+	//checks the hand to see if it is a Royal Flush
+		public int isRoyalFlush (ArrayList<Card> myHand) {
+			ArrayList<Card> hand = sort(myHand);
+			int i = 0;
+			Card c0 = hand.get(0);
+			eCardValue jack = eCardValue.values()[9];
+			if(c0.getValue() == jack) {
+				while(i < 4) {
+					Card c1 = hand.get(i);
+					Card c2 = hand.get(i+1);
+					if(c1.getSuit() == c2.getSuit()) 
+						continue;
+				}	
+			}
+			else 
+				return 0;
+			
+			return 10;
+		}
+	
 	public int isStraight(ArrayList<Card> myHand) {
 		ArrayList<Card> hand = sort(myHand);
 		int i = 0;
@@ -45,58 +66,6 @@ public class Hand {
 			}
 		}
 		return 9;
-	}
-	
-	//checks the hand to see if it is a Royal Flush
-	public int isRoyalFlush (ArrayList<Card> myHand) {
-		ArrayList<Card> hand = sort(myHand);
-		int i = 0;
-		Card c0 = hand.get(0);
-		eCardValue jack = eCardValue.values()[9];
-		if(c0.getValue() == jack) {
-			while(i < 4) {
-				Card c1 = hand.get(i);
-				Card c2 = hand.get(i+1);
-				if(c1.getSuit() == c2.getSuit()) 
-					continue;
-			}	
-		}
-		else 
-			return 0;
-		
-		return 10;
-	}
-	
-	
-	public int isFlush(ArrayList<Card> myHand) {
-		ArrayList<Card> hand = sort(myHand);
-		int i = 0;
-		while(i < 4) {
-			Card c1 = hand.get(i);
-			Card c2 = hand.get(i+1);
-			if(c1.getSuit() == c2.getSuit()) {
-				i++;
-			}
-			else {
-				return 0;
-			}
-		}
-		return 6;
-	}
-	
-	public String judgeHand(ArrayList<Card> myHand) {
-		if(isStraight(myHand) == 9) {
-			String result = new String("It is a straight");
-			return result;
-		}
-		else if(isFlush(myHand) == 6) {
-			String result = new String("It is a flush");
-			return result;
-		}
-		else {
-			String result = new String("It is not a straight or a flush");
-			return result;
-		}
 	}
 	
 	public int isFourofaKind (ArrayList<Card> myHand) {
@@ -117,6 +86,41 @@ public class Hand {
 		return 8;
 	} 
 	
+	public int isFullHouse (ArrayList<Card> myHand) {
+		ArrayList<Card> hand = sort(myHand);
+		int i = 0;
+		Card c1 = hand.get(0);
+		Card c2 = hand.get(1);
+		Card c3 = hand.get(2);
+		Card c4 = hand.get(3);
+		Card c5 = hand.get(4);
+		
+		if(((c1.getValue() == c3.getValue()) && (c4.getValue() == c5.getValue())) || ((c1.getValue() == c2.getValue()) && (c3.getValue() == c5.getValue()))){
+			System.out.println("Full House!");
+			}	
+		
+		else 
+			return 0;
+		
+		return 7;
+	} 
+	
+	public int isFlush(ArrayList<Card> myHand) {
+		ArrayList<Card> hand = sort(myHand);
+		int i = 0;
+		while(i < 4) {
+			Card c1 = hand.get(i);
+			Card c2 = hand.get(i+1);
+			if(c1.getSuit() == c2.getSuit()) {
+				i++;
+			}
+			else {
+				return 0;
+			}
+		}
+		return 6;
+	}
+	
 	public int isThreeofaKind (ArrayList<Card> myHand) {
 		ArrayList<Card> hand = sort(myHand);
 		int i = 0;
@@ -136,6 +140,20 @@ public class Hand {
 		return 4;
 	} 
 	
+	public String judgeHand(ArrayList<Card> myHand) {
+		if(isStraight(myHand) == 9) {
+			String result = new String("It is a straight");
+			return result;
+		}
+		else if(isFlush(myHand) == 6) {
+			String result = new String("It is a flush");
+			return result;
+		}
+		else {
+			String result = new String("It is not a straight or a flush");
+			return result;
+		}
+	}
 	
 
 }
