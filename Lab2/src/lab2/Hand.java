@@ -47,6 +47,7 @@ public class Hand {
 		return true;
 	}
 	
+	//checks the hand to see if it is a Royal Flush
 	public int isRoyalFlush (ArrayList<Card> myHand) {
 		ArrayList<Card> hand = sort(myHand);
 		int i = 0;
