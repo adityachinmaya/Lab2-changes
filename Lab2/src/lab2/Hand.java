@@ -102,12 +102,12 @@ public class Hand {
 	public int isFourofaKind (ArrayList<Card> myHand) {
 		ArrayList<Card> hand = sort(myHand);
 		int i = 0;
-		Card c0 = hand.get(0);
-		Card c1 = hand.get(1);
+		Card c1 = hand.get(0);
+		Card c2 = hand.get(1);
 		Card c4 = hand.get(3);
 		Card c5 = hand.get(4);
 		
-		if((c0.getValue() == c4.getValue()) || (c1.getValue() == c5.getValue()) ){
+		if((c1.getValue() == c4.getValue()) || (c2.getValue() == c5.getValue()) ){
 			System.out.println("4 of a kind!");
 			}	
 		
@@ -117,6 +117,24 @@ public class Hand {
 		return 8;
 	} 
 	
+	public int isThreeofaKind (ArrayList<Card> myHand) {
+		ArrayList<Card> hand = sort(myHand);
+		int i = 0;
+		Card c1 = hand.get(0);
+		Card c2 = hand.get(1);
+		Card c3 = hand.get(2);
+		Card c4 = hand.get(3);
+		Card c5 = hand.get(4);
+		
+		if((c1.getValue() == c3.getValue()) || (c2.getValue() == c4.getValue()) || (c3.getValue() == c5.getValue())){
+			System.out.println("3 of a kind!");
+			}	
+		
+		else 
+			return 0;
+		
+		return 7;
+	} 
 	
 
 }
