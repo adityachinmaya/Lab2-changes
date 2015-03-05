@@ -162,6 +162,7 @@ public class Hand {
 			String result = new String("It is a flush");
 			return result;
 		}
+
 		else {
 			String result = new String("It is not a straight or a flush");
 			return result;
