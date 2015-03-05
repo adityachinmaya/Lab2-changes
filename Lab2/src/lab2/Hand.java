@@ -48,7 +48,6 @@ public class Hand {
 			}
 			else 
 				return 0;
-			
 			return 10;
 		}
 	
@@ -132,7 +131,7 @@ public class Hand {
 				return 0;
 			
 		}
-		return 7;
+		return 5;
 	}
 	
 	public int isThreeofaKind (ArrayList<Card> myHand) {
