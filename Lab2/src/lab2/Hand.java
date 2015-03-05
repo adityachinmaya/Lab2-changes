@@ -133,8 +133,9 @@ public class Hand {
 		else 
 			return 0;
 		
-		return 7;
+		return 4;
 	} 
+	
 	
 
 }
