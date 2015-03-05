@@ -56,16 +56,14 @@ public class Hand {
 			while(i < 4) {
 				Card c1 = hand.get(i);
 				Card c2 = hand.get(i+1);
-				if(c1.getSuit() == c2.getSuit()) {
+				if(c1.getSuit() == c2.getSuit()) 
 					continue;
-				}
-			return 10;
-				
 			}	
 		}
-		else {
+		else 
 			return 0;
-		}
+		
+		return 10;
 	}
 	
 	
