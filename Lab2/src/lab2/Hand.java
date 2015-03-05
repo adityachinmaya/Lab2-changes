@@ -52,18 +52,17 @@ public class Hand {
 			return 10;
 		}
 	
-	public int isStraight(ArrayList<Card> myHand) {
+	public int isStraightFlush(ArrayList<Card> myHand) {
 		ArrayList<Card> hand = sort(myHand);
 		int i = 0;
 		while(i < 4) {
 			Card c1 = hand.get(i);
 			Card c2 = hand.get(i+1);
-			if(c1.getValue() == c2.getValue()) {
+			if((c1.getValue() == c2.getValue()) && c1.getSuit() == c2.getSuit()) 
 				i++;
-			}
-			else {
+			else
 				return 0;
-			}
+			
 		}
 		return 9;
 	}
@@ -119,6 +118,21 @@ public class Hand {
 			}
 		}
 		return 6;
+	}
+	
+	public int isStraight(ArrayList<Card> myHand) {
+		ArrayList<Card> hand = sort(myHand);
+		int i = 0;
+		while(i < 4) {
+			Card c1 = hand.get(i);
+			Card c2 = hand.get(i+1);
+			if(c1.getValue() == c2.getValue()) 
+				i++;
+			else
+				return 0;
+			
+		}
+		return 7;
 	}
 	
 	public int isThreeofaKind (ArrayList<Card> myHand) {
