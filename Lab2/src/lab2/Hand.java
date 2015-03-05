@@ -31,7 +31,7 @@ public class Hand {
 		}
 		return myHand;
 	}
-	public boolean isStraight(ArrayList<Card> myHand) {
+	public int isStraight(ArrayList<Card> myHand) {
 		ArrayList<Card> hand = sort(myHand);
 		int i = 0;
 		while(i < 4) {
@@ -41,10 +41,10 @@ public class Hand {
 				i++;
 			}
 			else {
-				return false;
+				return 0;
 			}
 		}
-		return true;
+		return 9;
 	}
 	
 	//checks the hand to see if it is a Royal Flush
@@ -68,7 +68,7 @@ public class Hand {
 	}
 	
 	
-	public boolean isFlush(ArrayList<Card> myHand) {
+	public int isFlush(ArrayList<Card> myHand) {
 		ArrayList<Card> hand = sort(myHand);
 		int i = 0;
 		while(i < 4) {
@@ -78,18 +78,18 @@ public class Hand {
 				i++;
 			}
 			else {
-				return false;
+				return 0;
 			}
 		}
-		return true;
+		return 6;
 	}
 	
 	public String judgeHand(ArrayList<Card> myHand) {
-		if(isStraight(myHand)) {
+		if(isStraight(myHand) == 9) {
 			String result = new String("It is a straight");
 			return result;
 		}
-		else if(isFlush(myHand)) {
+		else if(isFlush(myHand) == 6) {
 			String result = new String("It is a flush");
 			return result;
 		}
